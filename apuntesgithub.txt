@@ -1,0 +1,17 @@
+Cuando olvido descargar readme e intento subir archivos
+
+Para realizar un git pull y especificar cómo deseas reconciliar las ramas, puedes hacer lo siguiente:
+
+    Ejecuta el siguiente comando para realizar un git pull con la opción --rebase, que aplicará un rebase en lugar de hacer un merge:
+
+    bash
+
+git pull --rebase
+
+Esto intentará aplicar tus cambios locales en la parte superior de los cambios remotos y puede ayudar a mantener un historial de confirmaciones más limpio.
+
+Luego, intenta hacer un git push nuevamente:
+
+bash
+
+git push

@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # Descargar la página web en un archivo temporal
-curl -o ejemplos_css.html https://www.mclibre.org/consultar/htmlcss/css/css-flexbox.html
+curl -o pagina.html https://www.ejemplo.com/tu_pagina.html
+cat pagina.html | grep '<pre class="language-css" tabindex="0">' -A 20 | awk '/<code class="language-css">/{flag=1;next}/<\/code>/{flag=0}flag' > codigo.css
+
 
 # Menú principal
 while true; do
