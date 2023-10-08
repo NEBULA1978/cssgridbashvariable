@@ -2,7 +2,7 @@
 
 # Función para solicitar valores personalizados
 get_custom_values() {
-  echo "Introduce el tipo de display para div (por ejemplo, 'flex', 'block', etc.):"
+  echo "Introduce el tipo de display para div (por ejemplo, 'flex', 'block', 'inline-flex', etc.):"
   read -r GRID_DISPLAY
 
   echo "Introduce la dirección de los elementos flexibles ('row', 'row-reverse', 'column', 'column-reverse'):"
@@ -71,7 +71,11 @@ while true; do
   echo "   - Elementos colocados verticalmente de abajo arriba."
   echo "5. Ejemplo de Flexbox con personalización de valores"
   echo "   - Puedes configurar los valores de Flexbox a tu elección."
-  echo "6. Salir"
+  echo "6. Ejemplo de Flexbox con display 'inline-flex'"
+  echo "   - Contenedor en línea con elementos flexibles."
+  echo "7. Otra opción adicional"
+  echo "8. Otra opción adicional 2"
+  echo "9. Salir"
 
   read -n 1 -r OPTION
   echo ""  # Agrega un salto de línea para que la siguiente salida no se mezcle
@@ -123,11 +127,33 @@ while true; do
       ;;
 
     6)
+      GRID_DISPLAY="inline-flex"
+      FLEX_DIRECTION="row"
+      FLEX_WRAP="nowrap"
+      JUSTIFY_CONTENT="flex-start"
+      ALIGN_ITEMS="stretch"
+      ALIGN_CONTENT="flex-start"
+      generate_html
+      ;;
+
+    7)
+      echo "Has seleccionado la opción 7."
+      # Agrega aquí la acción que deseas para la opción 7
+      
+      ;;
+
+    8)
+      echo "Has seleccionado la opción 8."
+      # Agrega aquí la acción que deseas para la opción 8
+
+      ;;
+
+    9)
       exit 0
       ;;
 
     *)
-      echo "Opción inválida. Introduce un número del 1 al 6."
+      echo "Opción inválida. Introduce un número del 1 al 9."
       ;;
   esac
 
