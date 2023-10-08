@@ -71,15 +71,11 @@ while true; do
   echo "   - Elementos colocados verticalmente de abajo arriba."
   echo "5. Ejemplo de Flexbox con personalización de valores"
   echo "   - Puedes configurar los valores de Flexbox a tu elección."
-  echo "6. Ejemplo de Flexbox con dirección 'row-reverse'"
-  echo "   - Elementos colocados horizontalmente de derecha a izquierda."
-  echo "7. Ejemplo de Flexbox con dirección 'column'"
-  echo "   - Elementos colocados verticalmente de arriba abajo."
-  echo "8. Ejemplo de Flexbox con dirección 'column-reverse'"
-  echo "   - Elementos colocados verticalmente de abajo arriba."
-  echo "9. Salir"
+  echo "6. Salir"
 
-  read -r OPTION
+  read -n 1 -r OPTION
+  echo ""  # Agrega un salto de línea para que la siguiente salida no se mezcle
+
   case $OPTION in
     1)
       GRID_DISPLAY="flex"
@@ -127,41 +123,11 @@ while true; do
       ;;
 
     6)
-      GRID_DISPLAY="flex"
-      FLEX_DIRECTION="row-reverse"
-      FLEX_WRAP="nowrap"
-      JUSTIFY_CONTENT="flex-start"
-      ALIGN_ITEMS="stretch"
-      ALIGN_CONTENT="flex-start"
-      generate_html
-      ;;
-
-    7)
-      GRID_DISPLAY="flex"
-      FLEX_DIRECTION="column"
-      FLEX_WRAP="nowrap"
-      JUSTIFY_CONTENT="flex-start"
-      ALIGN_ITEMS="stretch"
-      ALIGN_CONTENT="flex-start"
-      generate_html
-      ;;
-
-    8)
-      GRID_DISPLAY="flex"
-      FLEX_DIRECTION="column-reverse"
-      FLEX_WRAP="nowrap"
-      JUSTIFY_CONTENT="flex-start"
-      ALIGN_ITEMS="stretch"
-      ALIGN_CONTENT="flex-start"
-      generate_html
-      ;;
-
-    9)
       exit 0
       ;;
 
     *)
-      echo "Opción inválida. Introduce un número del 1 al 9."
+      echo "Opción inválida. Introduce un número del 1 al 6."
       ;;
   esac
 
