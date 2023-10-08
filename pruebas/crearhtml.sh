@@ -1,0 +1,38 @@
+#!/bin/bash
+
+echo '<!DOCTYPE html>
+<html>
+<head>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 5px;
+  justify-items: center;
+  align-items: center;
+}
+
+.grid-item1 {
+  background: grey;
+  text-align: center;
+  border: black 5px solid;
+  width: 100px;
+  height: 100px;
+}
+</style>
+</head>
+<body>
+<div class="grid-container">
+  <div class="grid-item1">1</div>
+  <div class="grid-item1">2</div>
+  <div class="grid-item1">3</div>
+  <div class="grid-item1">4</div>
+  <div class="grid-item1">5</div>
+  <div class="grid-item1">6</div>
+  <div class="grid-item1">7</div>
+  <div class="grid-item1">8</div>
+  <div class="grid-item1">9</div>
+  <div class="grid-item1">10</div>
+</div>
+</body>
+</html>' > index.html

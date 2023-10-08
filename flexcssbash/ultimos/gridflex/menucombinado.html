@@ -1,0 +1,113 @@
+#!/bin/bash
+# Función para solicitar valores personalizados de CSS Grid
+get_custom_grid_values() {
+  echo "Introduce el número de filas:"
+  read -r GRID_ROWS
+
+  echo "Introduce el número de columnas:"
+  read -r GRID_COLUMNS
+
+  echo "Introduce el espacio entre las celdas (por ejemplo, '5px', '10px', etc.):"
+  read -r GRID_GAP
+}
+
+# Función para generar el archivo HTML con CSS Grid personalizado
+generate_grid_html() {
+  cat <<EOF >grid_example.html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.flex-container {
+  display: $FLEX_DISPLAY;
+  flex-direction: $FLEX_DIRECTION;
+  flex-wrap: $FLEX_WRAP;
+  justify-content: $JUSTIFY_CONTENT;
+  align-items: $ALIGN_ITEMS;
+  align-content: $ALIGN_CONTENT;
+  height: 300px;
+  border: 1px solid black;
+}
+
+.flex-item {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  background-color: lightgray;
+}
+</style>
+</head>
+<body>
+<div class="grid-container">
+EOF
+
+  for ((i = 1; i <= GRID_ROWS * GRID_COLUMNS; i++)); do
+    echo "  <div class=\"grid-item\">$i</div>" >>grid_example.html
+  done
+
+  cat <<EOF >>grid_example.html
+</div>
+</body>
+</html>
+EOF
+}
+
+# Función para modificar el número de filas de CSS Grid
+modify_grid_rows() {
+  echo "Introduce el nuevo número de filas:"
+  read -r GRID_ROWS
+  generate_grid_html
+}
+
+# Función para modificar el número de columnas de CSS Grid
+modify_grid_columns() {
+  echo "Introduce el nuevo número de columnas:"
+  read -r GRID_COLUMNS
+  generate_grid_html
+}
+
+# Función para solicitar valores personalizados de Flexbox
+get_custom_flex_values() {
+  echo "Introduce el tipo de display para div (por ejemplo, 'flex', 'block', 'inline-flex', etc.):"
+  read -r FLEX_DISPLAY
+
+  echo "Introduce la dirección de los elementos flexibles ('row', 'row-reverse', 'column', 'column-reverse'):"
+  read -r FLEX_DIRECTION
+
+  echo "Introduce la propiedad flex-wrap ('no-wrap', 'wrap', 'wrap-reverse'):"
+  read -r FLEX_WRAP
+
+  echo "Introduce la propiedad justify-content ('flex-start', 'flex-end', 'center', 'space-between', 'space-around'):"
+  read -r JUSTIFY_CONTENT
+
+  echo "Introduce la propiedad align-items ('flex-start', 'flex-end', 'center', 'stretch', 'baseline'):"
+  read -r ALIGN_ITEMS
+
+  echo "Introduce la propiedad align-content ('flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'stretch'):"
+  read -r ALIGN_CONTENT
+}
+
+# Función para generar el archivo HTML con CSS Flexbox personalizado
+generate_flex_html() {
+  cat <<EOF >flexbox_example.html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.flex-container {
+  display: $FLEX_DISPLAY;
+  flex-direction: $FLEX_DIRECTION;
+  flex-wrap: $FLEX_WRAP;
+  justify-content: $JUSTIFY_CONTENT;
+  align-items: $ALIGN_ITEMS;
+  align-content: $ALIGN_CONTENT;
+  height: 300px;
+  border: 1px solid black;
+}
+
+.flex-item {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  background-color: lightgray;
+}
