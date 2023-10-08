@@ -21,6 +21,20 @@ CSS_OPTIONS=("auto-fit auto-fill 2 3 4 1fr 2fr 3fr start end center stretch")
 JUSTIFY_ITEMS_OPTIONS=("start end center stretch")
 ALIGN_ITEMS_OPTIONS=("start end center stretch")
 
+# Función para validar las opciones del usuario
+validate_option() {
+  local options_array="$1"
+  local user_input="$2"
+  local default_value="$3"
+
+  if [[ ! " ${options_array[*]} " =~ " ${user_input} " ]]; then
+    echo "Opción no válida. Utilizando valor por defecto: $default_value."
+    user_input="$default_value"
+  fi
+
+  echo "$user_input"
+}
+
 while true; do
   echo "¿Deseas utilizar valores por defecto o introducir valores personalizados? (defecto/personalizados/salir):"
   read choice
@@ -34,50 +48,22 @@ while true; do
       # Solicitar valores personalizados
       echo "Introduce el tipo de display (opciones disponibles: ${DISPLAY_OPTIONS[*]}):"
       read -r GRID_DISPLAY
-      if [[ ! " ${DISPLAY_OPTIONS[*]} " =~ " ${GRID_DISPLAY} " ]]; then
-        echo "Opción no válida. Utilizando valor por defecto."
-        GRID_DISPLAY="grid"
-      fi
+      GRID_DISPLAY=$(validate_option "${DISPLAY_OPTIONS[*]}" "$GRID_DISPLAY" "grid")
 
       echo "Introduce el número de columnas de la cuadrícula (opciones disponibles: ${CSS_OPTIONS[*]}):"
       read -r GRID_COLUMNS
-      if [[ ! " ${CSS_OPTIONS[*]} " =~ " ${GRID_COLUMNS} " ]]; then
-        echo "Opción no válida. Utilizando valor por defecto."
-        GRID_COLUMNS="auto-fit"
-      fi
+      GRID_COLUMNS=$(validate_option "${CSS_OPTIONS[*]}" "$GRID_COLUMNS" "auto-fit")
 
       echo "Introduce la alineación horizontal de los elementos de la cuadrícula (opciones disponibles: ${JUSTIFY_ITEMS_OPTIONS[*]}):"
       read -r GRID_JUSTIFY_ITEMS
-      if [[ ! " ${JUSTIFY_ITEMS_OPTIONS[*]} " =~ " ${GRID_JUSTIFY_ITEMS} " ]]; then
-        echo "Opción no válida. Utilizando valor por defecto."
-        GRID_JUSTIFY_ITEMS="center"
-      fi
+      GRID_JUSTIFY_ITEMS=$(validate_option "${JUSTIFY_ITEMS_OPTIONS[*]}" "$GRID_JUSTIFY_ITEMS" "center")
 
       echo "Introduce la alineación vertical de los elementos de la cuadrícula (opciones disponibles: ${ALIGN_ITEMS_OPTIONS[*]}):"
       read -r GRID_ALIGN_ITEMS
-      if [[ ! " ${ALIGN_ITEMS_OPTIONS[*]} " =~ " ${GRID_ALIGN_ITEMS} " ]]; then
-        echo "Opción no válida. Utilizando valor por defecto."
-        GRID_ALIGN_ITEMS="center"
-      fi
+      GRID_ALIGN_ITEMS=$(validate_option "${ALIGN_ITEMS_OPTIONS[*]}" "$GRID_ALIGN_ITEMS" "center")
 
-      echo "Introduce el tamaño mínimo y máximo de las columnas de la cuadrícula (por ejemplo, '100px, 1fr', 'auto, 2fr', etc.):"
-      read -r GRID_MINMAX
-      echo "Introduce el espacio entre los elementos de la cuadrícula (por ejemplo, '5px', '10px', etc.):"
-      read -r GRID_GAP
-      echo "Introduce el ancho de los elementos de la cuadrícula (por ejemplo, '100px', '150px', etc.):"
-      read -r GRID_WIDTH
-      echo "Introduce el alto de los elementos de la cuadrícula (por ejemplo, '100px', '150px', etc.):"
-      read -r GRID_HEIGHT
-      echo "Introduce la cantidad de elementos en la cuadrícula (por ejemplo, '10', '20', etc.):"
-      read -r GRID_ITEM_COUNT
-      echo "Introduce el color de fondo de los elementos de la cuadrícula (por ejemplo, 'red', '#00ff00', etc.):"
-      read -r GRID_BACKGROUND_COLOR
-      echo "Introduce el color de texto de los elementos de la cuadrícula (por ejemplo, 'black', '#ffffff', etc.):"
-      read -r GRID_TEXT_COLOR
-      echo "Introduce el color del borde de los elementos de la cuadrícula (por ejemplo, 'black', '#ff0000', etc.):"
-      read -r GRID_BORDER_COLOR
-      echo "Introduce el ancho del borde de los elementos de la cuadrícula (por ejemplo, '5px', '2px', etc.):"
-      read -r GRID_BORDER_WIDTH
+      # Resto de opciones personalizadas aquí...
+
       break
       ;;
     "salir")
