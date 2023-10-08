@@ -71,67 +71,100 @@ while true; do
   echo "   - Elementos colocados verticalmente de abajo arriba."
   echo "5. Ejemplo de Flexbox con personalización de valores"
   echo "   - Puedes configurar los valores de Flexbox a tu elección."
-  echo "0. Salir"
+  echo "6. Ejemplo de Flexbox con dirección 'row-reverse'"
+  echo "   - Elementos colocados horizontalmente de derecha a izquierda."
+  echo "7. Ejemplo de Flexbox con dirección 'column'"
+  echo "   - Elementos colocados verticalmente de arriba abajo."
+  echo "8. Ejemplo de Flexbox con dirección 'column-reverse'"
+  echo "   - Elementos colocados verticalmente de abajo arriba."
+  echo "9. Salir"
 
   read -r OPTION
   case $OPTION in
     1)
-      GRID_DISPLAY="$EXAMPLE_1_GRID_DISPLAY"
-      FLEX_DIRECTION="$EXAMPLE_1_FLEX_DIRECTION"
-      FLEX_WRAP="$EXAMPLE_1_FLEX_WRAP"
-      JUSTIFY_CONTENT="$EXAMPLE_1_JUSTIFY_CONTENT"
-      ALIGN_ITEMS="$EXAMPLE_1_ALIGN_ITEMS"
-      ALIGN_CONTENT="$EXAMPLE_1_ALIGN_CONTENT"
-      generate_html # Llamar a la función para generar HTML
+      GRID_DISPLAY="flex"
+      FLEX_DIRECTION="row"
+      FLEX_WRAP="nowrap"
+      JUSTIFY_CONTENT="flex-start"
+      ALIGN_ITEMS="stretch"
+      ALIGN_CONTENT="flex-start"
+      generate_html
       ;;
+
     2)
-      GRID_DISPLAY="$EXAMPLE_2_GRID_DISPLAY"
-      FLEX_DIRECTION="$EXAMPLE_2_FLEX_DIRECTION"
-      FLEX_WRAP="$EXAMPLE_2_FLEX_WRAP"
-      JUSTIFY_CONTENT="$EXAMPLE_2_JUSTIFY_CONTENT"
-      ALIGN_ITEMS="$EXAMPLE_2_ALIGN_ITEMS"
-      ALIGN_CONTENT="$EXAMPLE_2_ALIGN_CONTENT"
-      generate_html # Llamar a la función para generar HTML
+      GRID_DISPLAY="flex"
+      FLEX_DIRECTION="row-reverse"
+      FLEX_WRAP="nowrap"
+      JUSTIFY_CONTENT="flex-start"
+      ALIGN_ITEMS="stretch"
+      ALIGN_CONTENT="flex-start"
+      generate_html
       ;;
+
     3)
-      GRID_DISPLAY="$EXAMPLE_3_GRID_DISPLAY"
-      FLEX_DIRECTION="$EXAMPLE_3_FLEX_DIRECTION"
-      FLEX_WRAP="$EXAMPLE_3_FLEX_WRAP"
-      JUSTIFY_CONTENT="$EXAMPLE_3_JUSTIFY_CONTENT"
-      ALIGN_ITEMS="$EXAMPLE_3_ALIGN_ITEMS"
-      ALIGN_CONTENT="$EXAMPLE_3_ALIGN_CONTENT"
-      generate_html # Llamar a la función para generar HTML
+      GRID_DISPLAY="flex"
+      FLEX_DIRECTION="column"
+      FLEX_WRAP="nowrap"
+      JUSTIFY_CONTENT="flex-start"
+      ALIGN_ITEMS="stretch"
+      ALIGN_CONTENT="flex-start"
+      generate_html
       ;;
+
     4)
-      GRID_DISPLAY="$EXAMPLE_4_GRID_DISPLAY"
-      FLEX_DIRECTION="$EXAMPLE_4_FLEX_DIRECTION"
-      FLEX_WRAP="$EXAMPLE_4_FLEX_WRAP"
-      JUSTIFY_CONTENT="$EXAMPLE_4_JUSTIFY_CONTENT"
-      ALIGN_ITEMS="$EXAMPLE_4_ALIGN_ITEMS"
-      ALIGN_CONTENT="$EXAMPLE_4_ALIGN_CONTENT"
-      generate_html # Llamar a la función para generar HTML
+      GRID_DISPLAY="flex"
+      FLEX_DIRECTION="column-reverse"
+      FLEX_WRAP="nowrap"
+      JUSTIFY_CONTENT="flex-start"
+      ALIGN_ITEMS="stretch"
+      ALIGN_CONTENT="flex-start"
+      generate_html
       ;;
+
     5)
-      GRID_DISPLAY="$EXAMPLE_5_GRID_DISPLAY"
-      FLEX_DIRECTION="$EXAMPLE_5_FLEX_DIRECTION"
-      FLEX_WRAP="$EXAMPLE_5_FLEX_WRAP"
-      JUSTIFY_CONTENT="$EXAMPLE_5_JUSTIFY_CONTENT"
-      ALIGN_ITEMS="$EXAMPLE_5_ALIGN_ITEMS"
-      ALIGN_CONTENT="$EXAMPLE_5_ALIGN_CONTENT"
-      generate_html # Llamar a la función para generar HTML
-      ;;
-    6)
       get_custom_values
-      generate_html # Llamar a la función para generar HTML
+      generate_html
       ;;
-    0)
+
+    6)
+      GRID_DISPLAY="flex"
+      FLEX_DIRECTION="row-reverse"
+      FLEX_WRAP="nowrap"
+      JUSTIFY_CONTENT="flex-start"
+      ALIGN_ITEMS="stretch"
+      ALIGN_CONTENT="flex-start"
+      generate_html
+      ;;
+
+    7)
+      GRID_DISPLAY="flex"
+      FLEX_DIRECTION="column"
+      FLEX_WRAP="nowrap"
+      JUSTIFY_CONTENT="flex-start"
+      ALIGN_ITEMS="stretch"
+      ALIGN_CONTENT="flex-start"
+      generate_html
+      ;;
+
+    8)
+      GRID_DISPLAY="flex"
+      FLEX_DIRECTION="column-reverse"
+      FLEX_WRAP="nowrap"
+      JUSTIFY_CONTENT="flex-start"
+      ALIGN_ITEMS="stretch"
+      ALIGN_CONTENT="flex-start"
+      generate_html
+      ;;
+
+    9)
       exit 0
       ;;
+
     *)
-      echo "Opción no válida. Introduce un número válido del menú."
+      echo "Opción inválida. Introduce un número del 1 al 9."
       ;;
   esac
 
-  echo "Archivo HTML generado con las configuraciones seleccionadas o personalizadas. Puedes encontrarlo en flexbox_example.html."
-  read -n 1 -s -r -p "Presiona cualquier tecla para volver al menú..."
+  echo "Archivo HTML generado como 'flexbox_example.html'. Presiona Enter para continuar."
+  read -r
 done
