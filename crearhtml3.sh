@@ -11,7 +11,8 @@ GRID_BACKGROUND_COLOR="grey"
 GRID_TEXT_COLOR="black"
 GRID_BORDER_COLOR="black"
 GRID_BORDER_WIDTH="5px"
-GRID_JUSTIFY_ITEMS="center"  # Valor por defecto para justify-items
+GRID_JUSTIFY_ITEMS="center"
+GRID_ALIGN_ITEMS="center"
 
 while true; do
   echo "¿Deseas utilizar valores por defecto o introducir valores personalizados? (defecto/personalizados/salir):"
@@ -46,6 +47,8 @@ while true; do
       read -r GRID_BORDER_WIDTH
       echo "Introduce la alineación horizontal de los elementos de la cuadrícula (por ejemplo, 'start', 'center', 'end', etc.):"
       read -r GRID_JUSTIFY_ITEMS
+      echo "Introduce la alineación vertical de los elementos de la cuadrícula (por ejemplo, 'start', 'center', 'end', etc.):"
+      read -r GRID_ALIGN_ITEMS
       break
       ;;
     "salir")
@@ -67,8 +70,8 @@ cat > index.html <<EOF
   display: grid;
   grid-template-columns: repeat($GRID_COLUMNS, minmax($GRID_MINMAX));
   grid-gap: $GRID_GAP;
-  justify-items: $GRID_JUSTIFY_ITEMS;  # Aplicar el valor de justify-items
-  align-items: center;
+  justify-items: $GRID_JUSTIFY_ITEMS;
+  align-items: $GRID_ALIGN_ITEMS;
 }
 
 .grid-item1 {
