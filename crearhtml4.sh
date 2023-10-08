@@ -31,7 +31,7 @@ validate_option() {
   local user_input="$2"
   local default_value="$3"
 
-  if [[ ! " ${options_array[*]} " =~ " ${user_input} " ]]; then
+  if [[ ! " ${options_array[*]} " =~  ${user_input}  ]]; then
     echo "Opción no válida. Utilizando valor por defecto: $default_value."
     user_input="$default_value"
   fi
@@ -41,7 +41,7 @@ validate_option() {
 
 while true; do
   echo "¿Deseas utilizar valores por defecto o introducir valores personalizados? (defecto/personalizados/salir):"
-  read choice
+  read -r choice
 
   case $choice in
     "defecto")
