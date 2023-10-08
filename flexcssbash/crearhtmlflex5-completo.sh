@@ -94,7 +94,6 @@ if [ "$choice" == "defecto" ]; then
   FLEX_BASIS="$DEFAULT_FLEX_BASIS"
   FLEX_GROW="$DEFAULT_FLEX_GROW"
   FLEX_SHRINK="$DEFAULT_FLEX_SHRINK"
-  FLEX="$DEFAULT_FLEX"
   MARGIN_AUTO="$DEFAULT_MARGIN_AUTO"
   JUSTIFY_CONTENT="$DEFAULT_JUSTIFY_CONTENT"
   ALIGN_ITEMS="$DEFAULT_ALIGN_ITEMS"       # Nuevo valor por defecto para align-items
@@ -159,3 +158,30 @@ p {
 EOF
 
 echo "Archivo $OUTPUT_FILENAME creado con éxito."
+
+
+#     display: flex;: Esta propiedad CSS se aplica a un contenedor (por ejemplo, un elemento <div>) y establece que sus elementos secundarios (hijos) deben usar el modelo de diseño flexbox. Esto permite crear diseños flexibles y responsivos.
+
+#     flex-direction: Esta propiedad controla la dirección en la que los elementos secundarios se distribuyen dentro del contenedor flex. Puedes establecer valores como row (por defecto), row-reverse, column, o column-reverse.
+
+#     flex-wrap: Esta propiedad controla si los elementos secundarios deben envolverse en múltiples líneas cuando el espacio es insuficiente en la dirección principal. Puedes usar valores como nowrap (por defecto), wrap, o wrap-reverse.
+
+#     flex-flow: Esta propiedad es una abreviatura que combina flex-direction y flex-wrap en una sola declaración. Por ejemplo, puedes usar "row wrap" para establecer la dirección a "fila" y el ajuste a "envolver".
+
+#     order: Esta propiedad controla el orden en el que se muestran los elementos secundarios dentro del contenedor flex. Puedes asignar valores numéricos positivos o negativos para cambiar el orden.
+
+#     flex-basis: Esta propiedad establece el tamaño inicial de un elemento secundario antes de que comience a crecer o encogerse. Puedes usar valores como auto, content, un porcentaje, o un valor en píxeles.
+
+#     flex-grow: Esta propiedad controla cuánto espacio adicional pueden ocupar los elementos secundarios cuando hay espacio disponible. Un valor mayor significa que crecerán más.
+
+#     flex-shrink: Esta propiedad controla cuánto espacio pueden encogerse los elementos secundarios cuando el espacio es limitado. Un valor mayor significa que encogerán más.
+
+#     justify-content: Esta propiedad controla cómo se distribuyen los elementos secundarios a lo largo del eje principal del contenedor flex. Puedes usar valores como flex-start, flex-end, center, space-between, y space-around.
+
+#     align-items: Esta propiedad controla cómo se alinean los elementos secundarios en el eje secundario (perpendicular) del contenedor flex. Puedes usar valores como flex-start, flex-end, center, stretch, y baseline.
+
+#     align-self: Esta propiedad se aplica a un elemento secundario individual y controla su alineación en el eje secundario. Los valores son similares a los de align-items.
+
+#     align-content: Esta propiedad controla cómo se distribuye el espacio adicional en el eje secundario cuando hay múltiples líneas de elementos secundarios. Los valores son similares a los de justify-content.
+
+# Estas propiedades son esenciales para crear diseños flexibles y responsivos utilizando flexbox en CSS. Puedes ajustar sus valores según tus necesidades para lograr diseños específicos.
