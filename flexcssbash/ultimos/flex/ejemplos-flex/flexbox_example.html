@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+
+/* Ejemplo 1 */
+
+#contenedor {
+  display: flex; /* Esto activa el modelo de caja flexible */
+  flex-direction: row; /* Los elementos hijos se colocarán en una fila */
+  justify-content: flex-start; /* Justificar al principio del contenedor */
+  align-items: stretch; /* Alinear los elementos hijos para estirarse verticalmente */
+  flex-wrap: nowrap; /* Evitar que los elementos hijos se envuelvan */
+}
+
+.hijo:nth-child(1) {
+  background-color: red; /* Primer elemento con fondo rojo */
+}
+
+.hijo:nth-child(2) {
+  background-color: green; /* Segundo elemento con fondo verde */
+}
+
+.hijo:nth-child(3) {
+  background-color: blue; /* Tercer elemento con fondo azul */
+}
+    
+.hijo:nth-child(4) {
+  background-color: violet; /* Tercer elemento con fondo azul */
+}
+
+/* Ejemplo 2 */
+
+/* Ejemplo 3 */
+
+/* Ejemplo 4 */
+
+/* Ejemplo 5 */
+
+</style>
+  </head>
+  <body>
+    <section id="contenedor">
+
+      <div class="hijo">
+        1
+      </div>
+
+      <div class="hijo">
+        2
+      </div>
+
+      <div class="hijo">
+        3
+      </div>
+
+      <div class="hijo">
+        4
+      </div>
+
+    </section>
+  </body>
+</html>
